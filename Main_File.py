@@ -10,7 +10,7 @@ def open_main_page(root):
         widget.destroy()
 
     # Use pillow to load the image
-    original_image = Image.open("Add once image made")
+    original_image = Image.open("/Users/yohaan_thetechgod/Desktop/Year 11 Stuff/Projects/Software Engineering/Software Assesment 1/MainPageBackground.png")
 
     bg_label = tk.Label(root)
     bg_label.place(relwidth=1, relheight=1)
