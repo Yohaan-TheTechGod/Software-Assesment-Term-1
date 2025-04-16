@@ -16,12 +16,13 @@ def open_main_page(root):
     bg_label.place(relwidth=1, relheight=1)
 
     def resize_bg(event):
-        new_width = event.width
-        new_height = event.height
-        resized = original_image.resize((new_width, new_height), Image.ANTIALIAS)
-        bg_image = ImageTk.PhotoImage(resized)
-        bg_label.config(image=bg_image)
-        bg_label.image = bg_image  
+        if original_image:
+           new_width = event.width
+           new_height = event.height
+           resized = original_image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+           bg_image = ImageTk.PhotoImage(resized)
+           bg_label.config(image=bg_image)
+           bg_label.image = bg_image  
 
     root.bind("<Configure>", resize_bg)
 
