@@ -1,0 +1,18 @@
+# Yohaan Dosaj, 21/4/2025 
+#This file contains the question for the HARD Quiz
+# 
+# You can Add questions later as you wish
+#
+# Please enter the questions in that format ## Question followed by ; then options and then ; and the answer option; See example below
+# What is the capital of Australia?;A. Sydney;B. Melbourne;C. Canberra;D. Brisbane;C#
+#
+Which alkali metal is the most reactive?;A. Lithium;B. Sodium;C. Potassium;D. Cesium;D
+What is the primary reason for the high reactivity of alkali metals?;A. They have high ionization energy;B. They have a single valence electron;C. They have small atomic radii;D. They form covalent bonds;B
+Which of the following alkali metals has the highest density?;A. Lithium;B. Sodium;C. Rubidium;D. Francium;D
+When sodium reacts with water, what gas is released?;A. Oxygen;B. Nitrogen;C. Hydrogen;D. Carbon dioxide;C
+What color does potassium impart to a flame in a flame test?;A. Yellow;B. Lilac;C. Red;D. Blue;B
+Which alkali metal is stored under kerosene due to its reactivity with air and moisture?;A. Beryllium;B. Calcium;C. Sodium;D. Magnesium;C
+What is the trend in melting points of alkali metals down the group?;A. Increase;B. Stay the same;C. Decrease;D. Vary randomly;C
+Which of these alkali metals is least dense?;A. Sodium;B. Potassium;C. Lithium;D. Cesium;C
+Alkali metals are typically found in nature in which form?;A. As free elements;B. As oxides;C. As alloys;D. As salts or compounds;D
+What happens to the ionization energy of alkali metals as you go down the group?;A. Increases;B. Decreases;C. Remains constant;D. First increases then decreases;B

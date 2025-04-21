@@ -1,0 +1,18 @@
+# Yohaan Dosaj, 21/4/2025 
+#This file contains the question for the EASY Quiz
+# 
+# You can Add questions later as you wish
+#
+# Please enter the questions in that format ## Question followed by ; then options and then ; and the answer option; See example below
+# What is the capital of Australia?;A. Sydney;B. Melbourne;C. Canberra;D. Brisbane;C
+#
+Which group in the periodic table do alkali metals belong to?;A. Group 1;B. Group 2;C. Group 7;D. Group 18;A
+Which of the following is an alkali metal?;A. Calcium;B. Iron;C. Sodium;D. Helium;C
+What is the symbol for lithium?;A. Li;B. L;C. Lu;D. Lt;A
+How many valence electrons do alkali metals have?;A. 2;B. 1;C. 3;D. 8;B
+Which alkali metal is commonly found in table salt?;A. Potassium;B. Sodium;C. Lithium;D. Cesium;B
+What state of matter are alkali metals at room temperature?;A. Gas;B. Liquid;C. Solid;D. Plasma;C
+Which of the following is the lightest alkali metal?;A. Rubidium;B. Sodium;C. Lithium;D. Potassium;C
+Are alkali metals good conductors of electricity?;A. No;B. Yes;C. Only when molten;D. Only in gases;B
+How do alkali metals react with water?;A. No reaction;B. Slowly dissolve;C. Explosively;D. Only in acid;C
+What type of ion do alkali metals form?;A. -1 ion;B. -2 ion;C. +2 ion;D. +1 ion;D
