@@ -11,7 +11,7 @@ def main_page():
     root.attributes('-fullscreen', True)  
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-    bg = PhotoImage(file='background.png')
+    bg = PhotoImage(file='Main_background.png')
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -47,14 +47,6 @@ def main_page():
 
     main_frame = customtkinter.CTkFrame(root, fg_color="black")
     main_frame.place(relx=0.5, rely=0.63, anchor="center")  
-
-    title_label = customtkinter.CTkLabel(
-        main_frame,
-        text="Alkali Metals Quiz",
-        font=("Helvetica", 65),
-        text_color='white'
-    )
-    title_label.pack(pady=(0, 30))
 
     button_config = {
         "height": 80,
