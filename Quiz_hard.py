@@ -84,5 +84,5 @@ def start_quiz():
     # Initialize the application
     root = tk.Tk()
     app = QuizApp(root)
+    
     root.mainloop()
- 
