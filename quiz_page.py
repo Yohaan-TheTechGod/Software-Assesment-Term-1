@@ -11,7 +11,7 @@ def quiz_page():
     root.attributes('-fullscreen', True)
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-    bg = PhotoImage(file='background.png')
+    bg = PhotoImage(file='Quiz_Background.png')
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -28,7 +28,7 @@ def quiz_page():
         popup.geometry("500x350")
         popup.title("Information")
         popup.attributes("-topmost", True)
-        popup_label = customtkinter.CTkLabel(popup, text="Easy or hard quiz options await.", font=("Helvetica", 16), justify="center")
+        popup_label = customtkinter.CTkLabel(popup, text="Easy or hard quiz options await.", font=("Helvetica", 48), justify="center")
         popup_label.pack(expand=True, pady=20)
 
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
@@ -38,10 +38,7 @@ def quiz_page():
     info_button.pack()
 
     main_frame = customtkinter.CTkFrame(root, fg_color="black")
-    main_frame.place(relx=0.5, rely=0.5, anchor="center")
-
-    title_label = customtkinter.CTkLabel(main_frame, text="Quiz", font=("Helvetica", 65), text_color='white')
-    title_label.pack(pady=(0, 30))
+    main_frame.place(relx=0.5, rely=0.63, anchor="center")
 
     button_config = {
         "height": 80,

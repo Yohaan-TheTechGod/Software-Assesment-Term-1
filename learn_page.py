@@ -9,13 +9,13 @@ def learn_page():
     root.attributes('-fullscreen', True)
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-    bg_image = Image.open("background.png")
+    bg_image = Image.open("Learn_Background.png")
     bg_photo = ImageTk.PhotoImage(bg_image)
     bg_label = customtkinter.CTkLabel(root, image=bg_photo, text="")
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-    header = customtkinter.CTkLabel(root, text="Learn all about these Alkali Metals", font=("Helvetica", 36, "bold"), text_color="white", bg_color="black")
-    header.pack(pady=30)
+    header = customtkinter.CTkLabel(root, text="Learn all about these Alkali Metals", font=("Helvetica", 48, "bold"), text_color="white", bg_color="black")
+    header.pack(pady=50)
 
     elements = {
         "Lithium": "ADD INFORMATION HERE!!",
@@ -42,33 +42,47 @@ def learn_page():
         info_label = customtkinter.CTkLabel(info_window, text=f"{element_name}\n\n{element_info}", font=("Helvetica", 16), justify="center", wraplength=400)
         info_label.pack(expand=True, pady=20)
 
-    grid_frame = customtkinter.CTkFrame(root, fg_color="transparent")
+    grid_frame = customtkinter.CTkFrame(root, fg_color="transparent", bg_color="transparent")
     grid_frame.pack(pady=10)
 
     row = 0
     col = 0
     for index, (element, info) in enumerate(elements.items()):
-        img = Image.open(element_images[element]).resize((216, 216))
+        img = Image.open(element_images[element]).resize((256, 256))
         photo = ImageTk.PhotoImage(img)
         btn = customtkinter.CTkButton(
             grid_frame,
             image=photo,
             text=element,
             compound="top",
-            width=150,
-            height=150,
+            width=256,
+            height=256,
             fg_color="transparent",
             hover_color="#444444",
             command=lambda e=element, i=info: show_element_info(e, i)
         )
         btn.image = photo
-        btn.grid(row=row, column=col, padx=40, pady=20)
+        btn.grid(row=row, column=col, padx=20, pady=20)
 
         col += 1
         if col > 2:
             col = 0
             row += 1
-
+    
+    def show_info_popup():
+        popup = customtkinter.CTkToplevel(root)
+        popup.geometry("500x350")
+        popup.title("Information")
+        popup.attributes("-topmost", True)
+        popup_label = customtkinter.CTkLabel(popup, text="Click any of the images\n to learn about the element", font=("Helvetica", 48), justify="center")
+        popup_label.pack(expand=True, pady=20)
+        
+    info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
+    info_frame = customtkinter.CTkFrame(root, fg_color="transparent")
+    info_frame.pack(side="bottom", anchor="se", padx=10, pady=10)
+    info_button = customtkinter.CTkButton(info_frame, image=info_icon, text="", width=48, height=48, command=show_info_popup, fg_color="transparent", hover_color="#333333", bg_color='black')
+    info_button.pack()
+    
     def go_back():
         root.destroy()
         Main_File.main_page()
