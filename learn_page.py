@@ -94,7 +94,7 @@ def learn_page():
         "text_color": 'white',
         "corner_radius": 20,
         "fg_color": "#818181",
-        "hover_color": "#3B3B3B",
+        "hover_color": "black",
         "bg_color": "black",
         "border_width": 5,
         "border_color": 'white'
