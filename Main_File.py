@@ -46,7 +46,7 @@ def main_page():
     info_button.pack()
 
     main_frame = customtkinter.CTkFrame(root, fg_color="black")
-    main_frame.place(relx=0.5, rely=0.63, anchor="center")  
+    main_frame.place(relx=0.5, rely=0.6, anchor="center")  
 
     button_config = {
         "height": 80,

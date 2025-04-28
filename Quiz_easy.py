@@ -85,4 +85,6 @@ def start_quiz():
     root = tk.Tk()
     app = QuizApp(root)
 
-    root.mainloop() 
+    root.attributes("-fullscreen", True) # Make the program open fullscreen
+    root.bind("<Escape>", lambda e: root.attributes("-fullscreen", False)) # Allow the user to escape the fullscreen using Esc key
+    root.mainloop()
