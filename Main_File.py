@@ -35,8 +35,7 @@ def main_page():
         popup.geometry("500x350")
         popup.title("Information")
         popup.attributes("-topmost", True)
-        popup_label = customtkinter.CTkLabel(popup, text="This app lets you learn and test your knowledge about alkali metals.\nClick the buttons to begin\nThe Learn Button will lead you to the learn page, where you can learn all about Alkali Metals.\nThe Quiz button will test your knowledge, and the about button, well you got to find out for yourself :)\nThe Exit button will close the program", font=("Helvetica", 36), justify="center")
-
+        popup_label = customtkinter.CTkLabel(popup, text="This app lets you learn and test your knowledge about alkali metals.\nClick the buttons to begin\nThe Learn Button will lead you to the learn page, where you can learn all about Alkali Metals.\nThe Quiz button will test your knowledge, and the about button, well you got to find out for yourself :)\nThe Exit button will close the program", font=("Helvetica", 32), justify="center")
         popup_label.pack(expand=True, pady=20)
 
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
