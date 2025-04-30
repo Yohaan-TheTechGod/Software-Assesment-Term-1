@@ -1,3 +1,4 @@
+from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 
@@ -19,11 +20,12 @@ def start_quiz():
     class QuizApp:
         def __init__(self, root):
             self.root = root
-            self.root.title("Quiz Game")
+            self.root.title("Quiz Hard")
         
             self.score = 0
             self.current_question_index = 0
-            self.time_left = 15  # 15-second timer
+            self.time_left = 20  # 20-second timer
+            self.timer_id = None  # ID for tracking the active timer callback
         
             # UI elements
             self.question_label = tk.Label(root, text="", wraplength=400, font=("Arial", 14))
@@ -39,11 +41,28 @@ def start_quiz():
             self.timer_label.pack(pady=10)
         
             self.next_question()
-    
+        
+        def update_timer(self):
+            # Update the timer label
+            self.timer_label.config(text=f"Time left: {self.time_left} seconds")
+            if self.time_left > 0:
+                self.time_left -= 1
+                self.timer_id = self.root.after(1000, self.update_timer)  # Call this function every 1 second
+            else:
+                # Time's up, move to the next question
+                messagebox.showinfo("Time's Up", "You ran out of time!")
+                self.current_question_index += 1
+                self.next_question()
+                
         def next_question(self):
+            # Cancel any previous timer before starting a new one
+            if self.timer_id is not None:
+                self.root.after_cancel(self.timer_id)
+                self.timer_id = None
+
             if self.current_question_index < len(quiz_data):
                 # Reset timer
-                self.time_left = 15
+                self.time_left = 20
                 self.update_timer()
             
                 # Display the current question and options
@@ -69,17 +88,6 @@ def start_quiz():
         
             self.current_question_index += 1
             self.next_question()
-    
-        def update_timer(self):
-            if self.time_left > 0:
-                self.timer_label.config(text=f"Time left: {self.time_left} seconds")
-                self.time_left -= 1
-                self.root.after(1000, self.update_timer)  # Call this function every 1 second
-            else:
-                # Time's up, move to the next question
-                messagebox.showinfo("Time's Up", "You ran out of time!")
-                self.current_question_index += 1
-                self.next_question()
     
     # Initialize the application
     root = tk.Tk()

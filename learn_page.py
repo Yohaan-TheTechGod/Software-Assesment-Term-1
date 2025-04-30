@@ -1,3 +1,4 @@
+from tkinter import *
 import customtkinter
 from tkinter import Toplevel
 from PIL import Image, ImageTk
@@ -9,10 +10,9 @@ def learn_page():
     root.attributes('-fullscreen', True)
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-    bg_image = Image.open("Learn_Background.png")
-    bg_photo = ImageTk.PhotoImage(bg_image)
-    bg_label = customtkinter.CTkLabel(root, image=bg_photo, text="")
-    bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+    bg = PhotoImage(file='Learn_Background.png')
+    background_label = Label(root, image=bg)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
     header = customtkinter.CTkLabel(root, text="Learn all about these Alkali Metals", font=("Helvetica", 48, "bold"), text_color="white", bg_color="black")
     header.pack(pady=50)
