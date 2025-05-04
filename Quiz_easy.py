@@ -24,7 +24,7 @@ def start_quiz():
         
             self.score = 0
             self.current_question_index = 0
-            self.time_left = 20  # 20-second timer
+            self.time_left = 15  # 15-second timer
             self.timer_id = None  # ID for tracking the active timer callback
         
             # UI elements
@@ -62,7 +62,7 @@ def start_quiz():
 
             if self.current_question_index < len(quiz_data):
                 # Reset timer
-                self.time_left = 20
+                self.time_left = 15
                 self.update_timer()
             
                 # Display the current question and options
