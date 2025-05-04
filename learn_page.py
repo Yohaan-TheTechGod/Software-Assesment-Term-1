@@ -19,14 +19,14 @@ def learn_page():
         popup.title(title)
         popup.attributes("-topmost", True)
 
-        bg_image = customtkinter.CTkImage(light_image=Image.open(image_file), size=(900, 600))
+        bg_image = customtkinter.CTkImage(light_image=Image.open(image_file), size=(1920, 1080))
         bg_label = customtkinter.CTkLabel(popup, image=bg_image, text="")
         bg_label.image = bg_image
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         close_button = customtkinter.CTkButton(
             popup, text="Close Window ❌", font=("Helvetica", 32), command=popup.destroy)
-        close_button.place(relx=0.5, rely=0.9, anchor="center")
+        close_button.place(relx=0.5, rely=0.875, anchor="center")
 
     element_buttons = {
         "Lithium": ("Lithium.png", lambda: open_info_window("lithium_info.png", "Lithium")),
