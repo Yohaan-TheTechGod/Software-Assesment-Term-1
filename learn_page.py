@@ -1,8 +1,7 @@
 from tkinter import *
 import customtkinter
-from tkinter import Toplevel
 from PIL import Image, ImageTk
-import Main_File 
+import Main_File
 
 def learn_page():
     root = customtkinter.CTk()
@@ -14,59 +13,49 @@ def learn_page():
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-    elements = {
-        "Lithium": "ADD INFORMATION HERE!!",
-        "Sodium": "ADD INFORMATION HERE!!",
-        "Potassium": "ADD INFORMATION HERE!!",
-        "Rubidium": "ADD INFORMATION HERE!!",
-        "Caesium": "ADD INFORMATION HERE!!",
-        "Francium": "ADD INFORMATION HERE!!",
-    }
+    def open_info_window(image_file, title):
+        popup = customtkinter.CTkToplevel(root)
+        popup.geometry("900x600")
+        popup.title(title)
+        popup.attributes("-topmost", True)
 
-    element_images = {
-        "Lithium": "Lithium.png",  
-        "Sodium": "Sodium.png",
-        "Potassium": "Potassium.png",
-        "Rubidium": "Rubidium.png",
-        "Caesium": "Caesium.png",
-        "Francium": "Francium.png",
-    }
+        bg_image = customtkinter.CTkImage(light_image=Image.open(image_file), size=(900, 600))
+        bg_label = customtkinter.CTkLabel(popup, image=bg_image, text="")
+        bg_label.image = bg_image
+        bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-    def show_element_info(element_name, element_info):
-        info_window = customtkinter.CTkToplevel(root)
-        info_window.title(element_name)
-        info_window.geometry("500x400")
-        info_window.configure(fg_color="transparent")
-        info_label = customtkinter.CTkLabel(
-            info_window,
-            text=f"{element_name}\n\n{element_info}",
-            font=("Helvetica", 16),
-            justify="center",
-            wraplength=400,
-            fg_color="#BDEAF6",
-            bg_color="#BDEAF6"
-        )
-        info_label.pack(expand=True, pady=20)
+        close_button = customtkinter.CTkButton(
+            popup, text="Close Window ❌", font=("Helvetica", 32), command=popup.destroy)
+        close_button.place(relx=0.5, rely=0.9, anchor="center")
+
+    element_buttons = {
+        "Lithium": ("Lithium.png", lambda: open_info_window("lithium_info.png", "Lithium")),
+        "Sodium": ("Sodium.png", lambda: open_info_window("sodium_info.png", "Sodium")),
+        "Potassium": ("Potassium.png", lambda: open_info_window("potassium_info.png", "Potassium")),
+        "Rubidium": ("Rubidium.png", lambda: open_info_window("rubidium_info.png", "Rubidium")),
+        "Caesium": ("Caesium.png", lambda: open_info_window("caesium_info.png", "Caesium")),
+        "Francium": ("Francium.png", lambda: open_info_window("francium_info.png", "Francium")),
+    }
 
     grid_frame = customtkinter.CTkFrame(root, fg_color="#BDEAF6", bg_color="#BDEAF6")
     grid_frame.place(relx=0.5, rely=0.53, anchor="center")
 
     row = 0
     col = 0
-    for index, (element, info) in enumerate(elements.items()):
-        img = Image.open(element_images[element]).resize((216, 216))
+    for name, (img_path, command) in element_buttons.items():
+        img = Image.open(img_path).resize((216, 216))
         photo = ImageTk.PhotoImage(img)
         btn = customtkinter.CTkButton(
             grid_frame,
             image=photo,
-            text=element,
+            text=name,
             compound="top",
             width=256,
             height=256,
             fg_color='#BDEAF6',
             bg_color='#BDEAF6',
             hover_color="black",
-            command=lambda e=element, i=info: show_element_info(e, i)
+            command=command
         )
         btn.image = photo
         btn.grid(row=row, column=col, padx=20, pady=10)
@@ -75,7 +64,7 @@ def learn_page():
         if col > 2:
             col = 0
             row += 1
-    
+
     def show_info_popup():
         popup = customtkinter.CTkToplevel(root)
         popup.geometry("900x600")
@@ -99,7 +88,7 @@ def learn_page():
 
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
     info_frame = customtkinter.CTkFrame(root, fg_color="orange", bg_color='orange')
-    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)  
+    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
     info_button = customtkinter.CTkButton(
         info_frame,
         image=info_icon,
@@ -112,7 +101,7 @@ def learn_page():
         bg_color='orange'
     )
     info_button.pack()
-    
+
     def go_back():
         root.destroy()
         Main_File.main_page()
