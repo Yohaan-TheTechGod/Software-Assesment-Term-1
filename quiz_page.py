@@ -11,7 +11,7 @@ def quiz_page():
     root.attributes('-fullscreen', True)
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-    bg = PhotoImage(file='Quiz_Background.png')
+    bg = PhotoImage(file='Quiz_Page_Background.png')
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
