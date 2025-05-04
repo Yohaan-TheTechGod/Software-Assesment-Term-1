@@ -44,8 +44,8 @@ def main_page():
     info_button = customtkinter.CTkButton(info_frame, image=info_icon, text="", width=48, height=48, command=show_info_popup, fg_color="transparent", hover_color="#333333", bg_color='black')
     info_button.pack()
 
-    main_frame = customtkinter.CTkFrame(root, fg_color="black")
-    main_frame.place(relx=0.5, rely=0.61, anchor="center")  
+    main_frame = customtkinter.CTkFrame(root, fg_color="#C6E8F4", bg_color="#C6E8F4")
+    main_frame.place(relx=0.5, rely=0.615, anchor="center")  
 
     button_config = {
         "height": 80,
@@ -53,9 +53,9 @@ def main_page():
         "font": ("Helvetica", 24),
         "text_color": 'white',
         "corner_radius": 20,
-        "fg_color": "#818181",
+        "fg_color": "#C6E8F4",
         "hover_color": "black",
-        "bg_color": "black",  
+        "bg_color": "#C6E8F4",  
         "border_width": 5,
         "border_color": 'white'
     }
