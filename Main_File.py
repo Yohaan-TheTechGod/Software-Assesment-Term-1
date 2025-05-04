@@ -58,7 +58,7 @@ def main_page():
         close_button.place(relx=0.5, rely=0.85, anchor="center")
 
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
-    info_frame = customtkinter.CTkFrame(root, fg_color="#FFDE58", bg_color='#FFDE58')
+    info_frame = customtkinter.CTkFrame(root, fg_color="orange", bg_color='orange')
     info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)  
     info_button = customtkinter.CTkButton(
         info_frame,
@@ -67,9 +67,9 @@ def main_page():
         width=48,
         height=48,
         command=show_info_popup,
-        fg_color="#FFDE58",
-        hover_color="#333333",
-        bg_color='#FFDE58'
+        fg_color="orange",
+        hover_color="black",
+        bg_color='orange'
     )
     info_button.pack()
 
