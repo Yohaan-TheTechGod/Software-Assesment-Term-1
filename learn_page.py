@@ -29,12 +29,12 @@ def learn_page():
         close_button.place(relx=0.5, rely=0.875, anchor="center")
 
     element_buttons = {
-        "Lithium": ("Lithium.png", lambda: open_info_window("lithium_info.png", "Lithium")),
-        "Sodium": ("Sodium.png", lambda: open_info_window("sodium_info.png", "Sodium")),
-        "Potassium": ("Potassium.png", lambda: open_info_window("potassium_info.png", "Potassium")),
-        "Rubidium": ("Rubidium.png", lambda: open_info_window("rubidium_info.png", "Rubidium")),
-        "Caesium": ("Caesium.png", lambda: open_info_window("caesium_info.png", "Caesium")),
-        "Francium": ("Francium.png", lambda: open_info_window("francium_info.png", "Francium")),
+        "Lithium": ("Lithium.png", lambda: open_info_window("Lithium_Info.png", "Lithium")),
+        "Sodium": ("Sodium.png", lambda: open_info_window("Sodium_Info.png", "Sodium")),
+        "Potassium": ("Potassium.png", lambda: open_info_window("Potassium_Info.png", "Potassium")),
+        "Rubidium": ("Rubidium.png", lambda: open_info_window("Rubidium_Info.png", "Rubidium")),
+        "Caesium": ("Caesium.png", lambda: open_info_window("Caesium_Info.png", "Caesium")),
+        "Francium": ("Francium.png", lambda: open_info_window("Francium_Info.png", "Francium")),
     }
 
     grid_frame = customtkinter.CTkFrame(root, fg_color="#BDEAF6", bg_color="#BDEAF6")
