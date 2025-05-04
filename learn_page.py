@@ -14,7 +14,14 @@ def learn_page():
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-    header = customtkinter.CTkLabel(root, text="Learn all about these Alkali Metals", font=("Helvetica", 48, "bold"), text_color="white", bg_color="black")
+    header = customtkinter.CTkLabel(
+        root,
+        text="Learn all about these Alkali Metals",
+        font=("Helvetica", 48, "bold"),
+        text_color="white",
+        fg_color="transparent",
+        bg_color="transparent"
+    )
     header.pack(pady=50)
 
     elements = {
@@ -36,10 +43,19 @@ def learn_page():
     }
 
     def show_element_info(element_name, element_info):
-        info_window = Toplevel(root)
+        info_window = customtkinter.CTkToplevel(root)
         info_window.title(element_name)
         info_window.geometry("500x400")
-        info_label = customtkinter.CTkLabel(info_window, text=f"{element_name}\n\n{element_info}", font=("Helvetica", 16), justify="center", wraplength=400)
+        info_window.configure(fg_color="transparent")
+        info_label = customtkinter.CTkLabel(
+            info_window,
+            text=f"{element_name}\n\n{element_info}",
+            font=("Helvetica", 16),
+            justify="center",
+            wraplength=400,
+            fg_color="transparent",
+            bg_color="transparent"
+        )
         info_label.pack(expand=True, pady=20)
 
     grid_frame = customtkinter.CTkFrame(root, fg_color="transparent", bg_color="transparent")
@@ -57,7 +73,8 @@ def learn_page():
             compound="top",
             width=256,
             height=256,
-            fg_color="transparent",
+            fg_color='transparent',
+            bg_color='transparent',
             hover_color="#444444",
             command=lambda e=element, i=info: show_element_info(e, i)
         )
@@ -71,16 +88,55 @@ def learn_page():
     
     def show_info_popup():
         popup = customtkinter.CTkToplevel(root)
-        popup.geometry("500x350")
+        popup.geometry("900x600")
         popup.title("Information")
         popup.attributes("-topmost", True)
-        popup_label = customtkinter.CTkLabel(popup, text="Click any of the images\n to learn about the element", font=("Helvetica", 48), justify="center")
-        popup_label.pack(expand=True, pady=20)
+        popup.configure(fg_color="transparent")
+
+        bg_image = customtkinter.CTkImage(light_image=Image.open("Help_Background.png"), size=(1920, 1080))
+        bg_label = customtkinter.CTkLabel(popup, image=bg_image, text="", fg_color="transparent", bg_color="transparent")
+        bg_label.image = bg_image 
+        bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+        popup_label = customtkinter.CTkLabel(
+            popup,
+            text=("Click any of the images\n to learn about the element"),
+            font=("Helvetica", 40),
+            justify="center",
+            text_color="black",
+            fg_color="#E0F0FF", 
+            corner_radius=20,
+            wraplength=800
+        )
+
+        popup_label.place(relx=0.5, rely=0.5, anchor="center")
+
+        close_button = customtkinter.CTkButton(
+            popup,
+            text="Close Window ❌",
+            font=("Helvetica", 32),
+            command=popup.destroy,
+            fg_color="transparent",
+            bg_color="transparent",
+            hover_color="black"
+        )
+        close_button.place(relx=0.5, rely=0.85, anchor="center")
         
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
-    info_frame = customtkinter.CTkFrame(root, fg_color="transparent")
-    info_frame.pack(side="bottom", anchor="se", padx=10, pady=10)
-    info_button = customtkinter.CTkButton(info_frame, image=info_icon, text="", width=48, height=48, command=show_info_popup, fg_color="transparent", hover_color="#333333", bg_color='black')
+    info_frame = customtkinter.CTkFrame(root, fg_color="transparent", bg_color='transparent')
+    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)  
+
+    info_button = customtkinter.CTkButton(
+        info_frame,
+        image=info_icon,
+        text="",
+        width=48,
+        height=48,
+        command=show_info_popup,
+        fg_color="transparent",
+        hover_color="black",
+        bg_color='transparent'
+    )
     info_button.pack()
     
     def go_back():
@@ -93,9 +149,9 @@ def learn_page():
         "font": ("Helvetica", 24),
         "text_color": 'white',
         "corner_radius": 20,
-        "fg_color": "#818181",
+        "fg_color": "transparent",
         "hover_color": "black",
-        "bg_color": "black",
+        "bg_color": "transparent",
         "border_width": 5,
         "border_color": 'white'
     }

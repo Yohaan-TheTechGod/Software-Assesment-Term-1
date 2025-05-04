@@ -32,20 +32,49 @@ def main_page():
 
     def show_info_popup():
         popup = customtkinter.CTkToplevel(root)
-        popup.geometry("500x350")
+        popup.geometry("900x600")
         popup.title("Information")
         popup.attributes("-topmost", True)
-        popup_label = customtkinter.CTkLabel(popup, text="This app lets you learn and test your knowledge about alkali metals.\nClick the buttons to begin\nThe Learn Button will lead you to the learn page, where you can learn all about Alkali Metals.\nThe Quiz button will test your knowledge, and the about button, well you got to find out for yourself :)\nThe Exit button will close the program", font=("Helvetica", 32), justify="center")
-        popup_label.pack(expand=True, pady=20)
+
+        bg_image = customtkinter.CTkImage(light_image=Image.open("Help_Background.png"), size=(1920, 1080))
+        bg_label = customtkinter.CTkLabel(popup, image=bg_image, text="")
+        bg_label.image = bg_image 
+        bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+        popup_label = customtkinter.CTkLabel(
+            popup,
+            text=(
+                "This app lets you learn and test your knowledge about alkali metals.\n"
+                "Click the buttons to begin\n"
+                "The Learn Button will lead you to the learn page, where you can learn all about Alkali Metals.\n"
+                "The Quiz button will test your knowledge, and the about button, well you got to find out for yourself :)\n"
+                "The Exit button will close the program"
+            ),
+            font=("Helvetica", 32), justify="center", text_color="black", fg_color='#82ADFE', wraplength=800)
+        popup_label.place(relx=0.5, rely=0.5, anchor="center")
+
+        close_button = customtkinter.CTkButton(
+            popup, text="Close Window ❌", font=("Helvetica", 32), command=popup.destroy)
+        close_button.place(relx=0.5, rely=0.85, anchor="center")
 
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
-    info_frame = customtkinter.CTkFrame(root, fg_color="transparent")
-    info_frame.pack(side="bottom", anchor="se", padx=10, pady=10)
-    info_button = customtkinter.CTkButton(info_frame, image=info_icon, text="", width=48, height=48, command=show_info_popup, fg_color="transparent", hover_color="#333333", bg_color='black')
+    info_frame = customtkinter.CTkFrame(root, fg_color="#FFDE58", bg_color='#FFDE58')
+    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)  
+    info_button = customtkinter.CTkButton(
+        info_frame,
+        image=info_icon,
+        text="",
+        width=48,
+        height=48,
+        command=show_info_popup,
+        fg_color="#FFDE58",
+        hover_color="#333333",
+        bg_color='#FFDE58'
+    )
     info_button.pack()
 
-    main_frame = customtkinter.CTkFrame(root, fg_color="#C6E8F4", bg_color="#C6E8F4")
-    main_frame.place(relx=0.5, rely=0.615, anchor="center")  
+    main_frame = customtkinter.CTkFrame(root, fg_color="#BDEAF6", bg_color="#BDEAF6")
+    main_frame.place(relx=0.5, rely=0.615, anchor="center")
 
     button_config = {
         "height": 80,
@@ -53,9 +82,9 @@ def main_page():
         "font": ("Helvetica", 24),
         "text_color": 'white',
         "corner_radius": 20,
-        "fg_color": "#C6E8F4",
+        "fg_color": "#BDEAF6",
         "hover_color": "black",
-        "bg_color": "#C6E8F4",  
+        "bg_color": "#BDEAF6",
         "border_width": 5,
         "border_color": 'white'
     }
