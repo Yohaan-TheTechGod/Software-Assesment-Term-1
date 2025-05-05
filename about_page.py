@@ -1,42 +1,49 @@
 from tkinter import *
 import customtkinter
 from PIL import Image
-import Main_File
+import Main_File  # To return to main menu
 
 def about_page():
+    # Initialize the about window
     root = customtkinter.CTk()
-    root.title('About THis Project')
+    root.title('About This Project')
     root.attributes('-fullscreen', True)
     root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
+    # Set background image
     bg = PhotoImage(file='About_Background.png')
     background_label = Label(root, image=bg)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
-   
+
+    # Info pop-up for help
     def show_info_popup():
         popup = customtkinter.CTkToplevel(root)
         popup.geometry("900x600")
         popup.title("Information")
         popup.attributes("-topmost", True)
-        
+
+        # Help background
         bg_image = customtkinter.CTkImage(light_image=Image.open("Help_Background.png"), size=(1920, 1080))
         bg_label = customtkinter.CTkLabel(popup, image=bg_image, text="")
-        bg_label.image = bg_image 
+        bg_label.image = bg_image
         bg_label.place(x=0, y=0, relwidth=1, relheight=1)
-        
+
+        # Info text
         popup_label = customtkinter.CTkLabel(
             popup,
-            text=("Back button to go back to the main menu\n This was made by Yohaan Dosaj © 2025"),
+            text=("Back button to go back to the main menu\nThis was made by Yohaan Dosaj © 2025"),
             font=("Helvetica", 48), justify="center", text_color="black", fg_color='#82ADFE', wraplength=1000)
         popup_label.place(relx=0.5, rely=0.5, anchor="center")
 
+        # Close button
         close_button = customtkinter.CTkButton(
             popup, text="Close Window ❌", font=("Helvetica", 32), command=popup.destroy)
         close_button.place(relx=0.5, rely=0.85, anchor="center")
-        
+
+    # Help icon in bottom-right corner
     info_icon = customtkinter.CTkImage(light_image=Image.open("help_icon.png"), size=(40, 40))
     info_frame = customtkinter.CTkFrame(root, fg_color="orange", bg_color='orange')
-    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)  
+    info_frame.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
     info_button = customtkinter.CTkButton(
         info_frame,
         image=info_icon,
@@ -50,9 +57,11 @@ def about_page():
     )
     info_button.pack()
 
+    # Frame for back button
     main_frame = customtkinter.CTkFrame(root, fg_color="#BDEAF6", bg_color="#BDEAF6")
     main_frame.place(relx=0.5, rely=0.72, anchor="center")
 
+    # Style for button
     button_config = {
         "height": 80,
         "width": 230,
@@ -61,11 +70,13 @@ def about_page():
         "corner_radius": 20,
         "fg_color": "#BDEAF6",
         "hover_color": "black",
-        "bg_color": "#BDEAF6",  
+        "bg_color": "#BDEAF6",
         "border_width": 5,
         "border_color": 'white'
     }
-    
+
+    # Back to main menu button
     customtkinter.CTkButton(main_frame, text="Back to Main Menu", command=lambda: [root.destroy(), Main_File.main_page()], **button_config).pack(pady=10)
 
+    # Start the GUI event loop
     root.mainloop()

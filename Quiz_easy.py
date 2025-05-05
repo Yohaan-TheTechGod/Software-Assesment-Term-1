@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
-import quiz_page
+import quiz_page    # Allow code to open to this file
 
 def start_quiz():   
     # Read questions from the file
